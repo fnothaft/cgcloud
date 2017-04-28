@@ -4,7 +4,7 @@ from textwrap import dedent
 import time
 import logging
 import unittest
-from abc import ABCMeta
+from abc import ABCMeta, abstractmethod
 
 from cgcloud.core.test import CoreTestCase
 from cgcloud.spark.spark_box import install_dir, SparkBox, Spark2Box, SparkMaster, SparkSlave
@@ -29,7 +29,7 @@ class BaseSparkClusterTests( CoreTestCase ):
     create_image = True
 
     @classmethod
-    @abc.abstractmethod
+    @abstractmethod
     def initNode( cls ):
         raise NotImplementedError("Abstract method")
 
